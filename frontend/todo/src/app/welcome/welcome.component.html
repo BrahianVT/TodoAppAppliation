@@ -7,3 +7,8 @@
     <p>Click here to get a message</p>
     <button (click)="getWelcomeMessage()" class ="btn btn-success"> Get Welcome Message</button>
 </div>
+
+<div class ="container" *ngIf="welcomeMessageFromService">
+    <h2> Message:</h2>
+    {{welcomeMessageFromService}}
+</div>

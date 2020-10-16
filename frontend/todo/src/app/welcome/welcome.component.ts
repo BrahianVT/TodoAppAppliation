@@ -13,6 +13,7 @@ import { WelcomeDataService } from '../service/data/welcome-data.service';
 export class WelcomeComponent implements OnInit {
 
   message = 'Welcome '; 
+  welcomeMessageFromService : string;
   constructor(private route: ActivatedRoute, private welcomeDataService : WelcomeDataService) {
 
    }
@@ -22,7 +23,19 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage() {
-    this.welcomeDataService.executeHelloWorld();
+    console.log(this.welcomeDataService.executeHelloWorld());
+    this.welcomeDataService.executeHelloWorld().subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
+    );
+  }
+  handleErrorResponse(error) {
+    console.log(error.error);
+    this.welcomeMessageFromService = error.error.message;
   }
 
+  handleSuccessfulResponse(response){
+    console.log(response);
+    this.welcomeMessageFromService = response.message;
+  }
 }
