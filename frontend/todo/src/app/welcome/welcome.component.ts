@@ -13,20 +13,29 @@ import { WelcomeDataService } from '../service/data/welcome-data.service';
 export class WelcomeComponent implements OnInit {
 
   message = 'Welcome '; 
+  name ='';
   welcomeMessageFromService : string;
   constructor(private route: ActivatedRoute, private welcomeDataService : WelcomeDataService) {
 
    }
 
   ngOnInit(): void {
-    this.message += this.route.snapshot.params['name'];
+    this.name = this.route.snapshot.params['name'];
+    this.message+=this.name;
   }
 
   getWelcomeMessage() {
-    console.log(this.welcomeDataService.executeHelloWorld());
     this.welcomeDataService.executeHelloWorld().subscribe(
       response => this.handleSuccessfulResponse(response),
       error => this.handleErrorResponse(error)
+    );
+  }
+
+
+  getWelcomeMessageWithParameter(){
+    this.welcomeDataService.executeHelloWorldParameter(this.name).subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleSuccessfulResponse(error)
     );
   }
   handleErrorResponse(error) {
