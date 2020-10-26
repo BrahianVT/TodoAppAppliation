@@ -26,6 +26,10 @@ export class ListTodosComponent implements OnInit {
     this.refreshTodos();
   }
 
+  addTodo(){
+    this.router.navigate(['todos', -1]);
+  }
+
   refreshTodos(){
     this.todoService.retrieveAllTodos('Brahian').subscribe(
       response =>{
