@@ -1,4 +1,4 @@
-package com.todos.todosresapi;
+package com.todos.restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

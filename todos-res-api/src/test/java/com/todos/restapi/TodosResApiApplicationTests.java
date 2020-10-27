@@ -1,4 +1,4 @@
-package com.todos.todosresapi;
+package com.todos.restapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
