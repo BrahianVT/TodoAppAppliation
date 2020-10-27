@@ -10,8 +10,9 @@ import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
+import { HttpInterceptAuthService } from './service/http/http-intercept-auth.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { TodoComponent } from './todo/todo.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptAuthService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
