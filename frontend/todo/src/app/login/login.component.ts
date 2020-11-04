@@ -10,8 +10,8 @@ import { CustomAuthenticationService } from '../service/custom-authentication.se
 })
 export class LoginComponent implements OnInit {
 
-  username = 'Brahian'
-  password = 'xd'
+  username
+  password
   errorMessage = 'Invalid Credentials'
   invalidLogin  = false
   constructor(private router: Router, private authentication: CustomAuthenticationService) { }

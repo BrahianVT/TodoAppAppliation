@@ -27,7 +27,7 @@ export class CustomAuthenticationService {
 
   consumeJWTAuthService(username, password){
     
-    return this.http.post<any>(`${API_URL}/authenticate`, { username, password}).pipe(
+    return this.http.post<any>(`http://localhost:8080/authenticate`, { username, password}).pipe(
       map(
         data => { 
           sessionStorage.setItem('authenticateUser', username);
