@@ -22,3 +22,48 @@ The application consists in a basic todo app with CRUD functionality, using angu
 #### Components
 For the Back-End check the folder **todos-res-api** and for the Front-End check **frontend**, for more details.
 
+A Todo Management Application  
+Components:  
+
+ng new todo  
+ng g c welcome  
+ng g c login  
+ng g c error  
+ng g c listTodos  
+ng g c menu  
+ng g s service/customAuthentication  
+ng g c logout  
+ng g s service/routeGuard  
+ng g s service/data/welcomeData  
+ng g s service/data/TodoData  
+ng g c todo  
+ng g s service/http/HttpInterceptAuth  
+
+ng serve  
+ng lint   || check validation  
+ng build  
+ng test || run unit tests for angula in karma and jasmin  
+ng e2e  
+
+
+Angular components  
+HTML : .component.html  
+Style: .component.css  
+Code:  .component.ts  
+
+Event  and Data Binding  
+----  
+
+Rest URL´S:  
+/users/{username}/todos   get  
+/users/{username/getTodoById/{id} get  
+/users/{username}/todo/{id}  delete  
+/users/{username}/updateTodoById/{id} put  
+/users/{username}/createTodo post  
+
+URL FOR JWT  
+/basicAuth  get  
+/authenticate post { username: user, password: password}   -> token value  
+/refresh Header-Authorization:"Bearer JWT_TOKEN"    -> token  response  
+http://localhost:8080/users/Brahian/getTodoById/1  
+
